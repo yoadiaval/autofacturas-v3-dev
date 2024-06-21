@@ -1,5 +1,4 @@
 import ConfigNumRegistros from "./ConfigNumReg";
-import SaveDB from "./SaveDB";
 import { IoCloseCircleSharp } from "react-icons/io5";
 
 function Settings(props) {

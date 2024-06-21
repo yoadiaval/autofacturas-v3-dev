@@ -5,7 +5,7 @@ import Factura from "./Factura";
 import { useFactura } from "../hooks/useFactura";
 
 function TerminosPago() {
-  const { addFactura, delFacturas } = useFactura();
+  const { addFactura, delFactura } = useFactura();
   const [detailsLineFactura, setDetailsLineFactura] = useState({
     description: "",
     amount: "",
@@ -13,6 +13,7 @@ function TerminosPago() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addFactura(detailsLineFactura);
+
     setDetailsLineFactura({
       description: "",
       amount: "",
@@ -67,7 +68,7 @@ function TerminosPago() {
             <h3>Listado términos de pago</h3>{" "}
             <GrPowerReset
               onClick={() => {
-                delFacturas();
+                delFactura();
               }}
               size={15}
               className="cursor-pointer"

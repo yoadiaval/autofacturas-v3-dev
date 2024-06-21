@@ -1,14 +1,14 @@
 import { useState} from "react";
 import { IoSaveOutline } from "react-icons/io5";
 import Swal from "sweetalert2";
-import { useClient } from "../hooks/useClient";
+import { useNumReg } from "../hooks/useNumReg";
+
 
 function ConfigNumRegistros() {
   const [regA, setRegA] = useState("");
   const [regB, setRegB] = useState("");
 
-  const { setNumRegA, setNumRegB, resetNumRegistros } =
-   useClient();
+  const { setNumRegA, setNumRegB, resetNumRegistros } = useNumReg();
   const handleSubmitRegistroA = (event) => {
     event.preventDefault();
     setNumRegA(parseInt(regA));

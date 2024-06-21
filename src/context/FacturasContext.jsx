@@ -4,7 +4,7 @@ export const FacturasContext = createContext();
 
 function FacturasProvider({children}){
    const [factura, setFactura] = useState([]);
-
+ 
   const addFactura = (detailsLineFactura) => {
     setFactura([...factura, detailsLineFactura]);
   };
@@ -35,6 +35,7 @@ function FacturasProvider({children}){
 
    const valueToShare = {
      factura,
+     setFactura,
      addFactura,
      editFactura,
      delFacturaLine,

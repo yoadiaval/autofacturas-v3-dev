@@ -30,7 +30,7 @@ function Client(){
   );
 
   return (
-    <div className="px-14 pt-10 flex flex-col gap-7">
+    <div className="px-14 pt-10 flex flex-col gap-7 bg-[red]">
       {showModal && modal}
       <div className="flex justify-between items-center px-2">
         <h2>LISTADO CLIENTES</h2>

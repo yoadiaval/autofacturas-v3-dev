@@ -21,17 +21,15 @@ function Factura() {
   };
   return (
     <div>
-      <div className="grid grid-cols-4 rounded-full bg-[#f3f3f3] text-[#b5b5b5]">
+      <div className="grid grid-cols-4 rounded-full bg-[#f3f3f3] text-[#b5b5b5] h-[2em] pl-4 items-center">
         <div>Descripción</div>
-        <div>Cantidad</div>
-        <div>Editar</div>
-        <div>Eliminar</div>
+        <div className="col-start-3">Cantidad</div>
       </div>
      
       {rowList}
-      <div className="font-bold grid grid-cols-4">
-        <div className="col-start-1 ">Total: </div>
-        <div className="col-start-2 ">{totalFactura()}</div>
+      <div className="font-bold grid grid-cols-4 pl-4">
+        <div className="col-start-1">Total: </div>
+        <div className="col-start-3 ">{totalFactura()}</div>
       </div>
     </div>
   );

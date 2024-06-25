@@ -37,12 +37,12 @@ function TerminosPago() {
             <div className="flex gap-4">
               <div>
                 <label className="block">Descripción:</label>
-                <textarea
+                <input
                   type="text"
                   value={detailsLineFactura.description}
                   name="description"
                   onChange={handleChange}
-                  className="py-1 px-2 rounded-full bg-[#f3f3f3] focus:outline-none"
+                  className="py-1 px-2 rounded-full bg-[#f3f3f3] focus:outline-none border-none w-96"
                   required
                 />
               </div>
@@ -58,14 +58,14 @@ function TerminosPago() {
                   required
                 />
               </div>
+
+              <button type="submit">
+                <IoIosAddCircleOutline size={25} />
+              </button>
             </div>
-            <button type="submit">
-              <IoIosAddCircleOutline size={25} />
-            </button>
           </form>
         </div>
         <div>
-         
           <Factura />
         </div>
       </div>

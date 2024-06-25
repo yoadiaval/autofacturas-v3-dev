@@ -40,8 +40,8 @@ function ClientList() {
   };
 
   return (
-    <div>
-      <div className="flex items-center">
+    <div >
+      <div className="flex items-center ">
         <form>
           <input
             type="text"

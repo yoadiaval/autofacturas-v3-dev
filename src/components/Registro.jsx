@@ -43,98 +43,85 @@ function Registro() {
       <div className="flex items-center gap-4 flex-wrap">
         <form
           onSubmit={handleSubmit}
-          className="flex items-center flex-wrap gap-1"
+          className="flex flex-col flex-wrap gap-1 "
         >
-          <label>Forma de pago:</label> <br />
-          <div className="w-[100%] flex my-2 p-2 border rounded">
-            <label className="flex items-center gap-1">
-              Visa
-              <input
-                type="radio"
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-1">
+              <label>Forma de pago:</label>
+              <select
+                value={registro.typePayment}
                 name="typePayment"
-                value="Visa"
-                checked={registro.typePayment === "Visa"}
                 onChange={handleChange}
-              />
-            </label>
-            <label className="flex items-center gap-1">
-              Efectivo
-              <input
-                type="radio"
-                name="typePayment"
-                value="Efectivo"
-                checked={registro.typePayment === "Efectivo"}
+                className=" w-14 rounded-full px-1 focus:outline-none w-32"
+              >
+                <option value="0"></option>
+                <option value="Trasnferencia">Transferencia</option>
+                <option value="Visa">Visa</option>
+                <option value="Efectivo">Efectivo</option>
+              </select>
+            </div>
+            <div className="flex flex-col gap-1">
+              <label>Indique la serie:</label>
+              <select
+                value={registro.serie}
+                name="serie"
                 onChange={handleChange}
-              />
-            </label>
-            <label className="flex items-center gap-1">
-              Transferencia
-              <input
-                type="radio"
-                name="typePayment"
-                value="Transferencia"
-                checked={registro.typePayment === "Transferencia"}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <label>
-            Indique la serie:
-            <select
-              value={registro.serie}
-              name="serie"
-              onChange={handleChange}
-              className="ml-1"
-            >
-              <option value="0"></option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-            </select>
-          </label>
-          <label>
-            Fecha:
-            <input
-              type="date"
-              value={registro.date}
-              name="date"
-              onChange={handleChange}
-              className="ml-1"
-              required
-            />{" "}
-          </label>
-          <Button className="border-[#5bae9e] text-[#5bae9e]">Registrar</Button>
-        </form>
+                className=" w-14 rounded-full px-1 focus:outline-none"
+              >
+                <option value="0"></option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+              </select>
+            </div>
 
-        {activeDownload ? (
-          <PDFDownloadLink
-            document={<PDFDoc data={dataPDF} />}
-            fileName={
-              dataPDF.registro.serie +
-              "-" +
-              dataPDF.numReg +
-              "_" +
-              dataPDF.registro.date +
-              "_" +
-              dataPDF.selectedClient.cif
-            }
-          >
-            <button
-              onClick={handleActive}
-              className=" bg-[#5bae9e] text-black rounded px-2 py-1 flex items-center gap-2"
-            >
-              Descargar PDF <FiDownload size={20} />
+            <div className="flex flex-col gap-1">
+              <label>Fecha:</label>
+              <input
+                type="date"
+                value={registro.date}
+                name="date"
+                onChange={handleChange}
+                className=" rounded-full px-1 focus:outline-none"
+                required
+              />
+            </div>
+          </div>
+          <div className="flex">
+            <button className=" bg-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4">
+              Registrar
             </button>
-          </PDFDownloadLink>
-        ) : (
-          <Button
-            disabled={true}
-            className="border-[#5bae9e] text-[#5bae9e] flex items-center gap-2 "
-          >
-            Descargar PDF <FiDownload size={20} />
-          </Button>
-        )}
+            {activeDownload ? (
+              <PDFDownloadLink
+                document={<PDFDoc data={dataPDF} />}
+                fileName={
+                  dataPDF.registro.serie +
+                  "-" +
+                  dataPDF.numReg +
+                  "_" +
+                  dataPDF.registro.date +
+                  "_" +
+                  dataPDF.selectedClient.cif
+                }
+              >
+                <button
+                  onClick={handleActive}
+                  className=" bg-[#5bae9e] text-black rounded px-2 py-1 flex items-center gap-2"
+                >
+                  Descargar PDF <FiDownload size={20} />
+                </button>
+              </PDFDownloadLink>
+            ) : (
+              <button
+                disabled={true}
+                className="border-[#5bae9e] text-black rounded-full px-2 py-1 flex items-center gap-2 mt-4 mb-4 "
+              >
+                Descargar PDF <FiDownload size={20} />
+              </button>
+            )}
+          </div>
+        </form>
       </div>
-      
+
       <div className=" w-fit p-4 rounded bg-[#f3f3f3] ">
         <h4 className="bolder">Próximos datos de registro:</h4>
         <hr />

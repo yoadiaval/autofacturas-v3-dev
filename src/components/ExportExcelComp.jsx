@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useContext } from "react";
 import { utils, writeFileXLSX } from "xlsx";
 import { FiDownload } from "react-icons/fi";
 import { useClient } from "../hooks/useClient";
+import Button from "../layoutComps/Button";
 
 export default function SheetJSReactAoO() {
   const { clients } = useClient();
@@ -19,11 +20,11 @@ export default function SheetJSReactAoO() {
   }, [clients]);
 
   return (
-    <button
-      className="flex flex-row items-center justify-between ml-[1em] border rounded px-1 w-16 bg-[#373a5a] text-white"
+    <Button
+      className="flex items-center gap-2 bg-[#5BAE9E] text-[#f5f5f5]"
       onClick={exportFile}
     >
       Excel <FiDownload />
-    </button>
+    </Button>
   );
 }

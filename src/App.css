@@ -1,4 +1,25 @@
+:root {
+  --color-light: #b4b4b4;
+  --bg-color: #f3f3f3;
+  --btn-color-red: #d81c1c;
+  --btn-color-green: #5bae9e;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #5bae9e;
+  border-radius: 8px;
+  
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color:#376b61
+}
+
 body {
+  background-color: var(--bg-color);
+
   h1,
   h2,
   h3 {
@@ -18,7 +39,6 @@ body {
   td,
   th {
     padding: 0.3em;
- 
   }
   th {
     color: #f3f2f2;
@@ -36,8 +56,14 @@ body {
   input,
   select {
     border: solid 1px rgb(204, 204, 204);
+    focus: outline-none;
   }
   span {
     font-weight: bold;
   }
+}
+.wave {
+  background-image: url("./src/images/wave_bg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }

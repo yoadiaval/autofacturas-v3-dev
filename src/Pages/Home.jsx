@@ -1,40 +1,63 @@
-import { useEffect, useContext, useState } from "react";
-import CreateClient from "../components/CreateClient";
-import Registro from "../components/Registro";
-import ClientView from "../components/ClientView";
-import ClientList from "../components/ClientList";
-import { useClient } from "../hooks/useClient";
-import { IoPersonAdd } from "react-icons/io5";
+import { useState } from "react";
+import { GoPeople } from "react-icons/go";
+import { RiBillLine } from "react-icons/ri";
+import FacturaSection from "../components/FacturaSection";
+
+
 import Header from "../components/Header";
-import Modal from "../components/Modal";
+
 import TerminosPago from "../components/TerminosPago";
 
 function Home() {
-  const [showModal, setShowModal] = useState(false);
-  //Obtengo lista de personas almacenada en json
-  const { getClients } = useClient();
  
+const [activeClientsView, setActiveClientsView] = useState(true);
+const [activeBillView, setActiveBillView] = useState(false); 
+
+const activeClient=()=>{
+setActiveClientsView(true);
+setActiveBillView(false);
+}
+const activeBill=()=>{
+setActiveClientsView(false);
+setActiveBillView(true);
+}
  
-  //Renderizo lista ed personas cada que se modifica fetchPerson
-  useEffect(() => {
-    getClients();
-  }, [getClients]);
+  console.log("Client: "+ activeClientsView)
+  console.log("Bill: "+ activeBillView)
+return (
+  <>
+    <Header />
+    <div className="absolute h-[100vh] left-0 w-[150px] top-[100px] flex flex-col gap-5 items-center">
+      <h2 className="bold text-[#b4b4b4]">MENÚ</h2>
+      <div
+        onClick={activeClient}
+        className={
+          activeClientsView
+            ? "cursor-pointer w-12 h-12 rounded-full flex items-center justify-center bg-gray-200"
+            : " cursor-pointer w-12 h-12 rounded-full flex items-center justify-center bg-[#f3f3f3]"
+        }
+      >
+        <GoPeople size={20} color="#b4b4b4"/>
+      </div>
+      <div
+        onClick={activeBill}
+        className={
+          activeBillView
+            ? "cursor-pointer w-12 h-12 rounded-full flex items-center justify-center bg-gray-200"
+            : "cursor-pointer w-12 h-12 rounded-full flex items-center justify-center bg-[#f3f3f3]"
+        }
+      >
+        <RiBillLine size={20} color="#b4b4b4" />
+      </div>
+    </div>
+    <div className=" bg-white absolute w-[85%] h-[1000px] left-[150px] top-[100px] rounded-2xl">
+      <FacturaSection/>
+    </div>
+  </>
+);
 
-  
 
-  const handleClickModal = () => {
-    setShowModal(true);
-  };
-  const handleClose = () => {
-    setShowModal(false);
-  };
-  const modal = (
-    <Modal onClose={handleClose}>
-      <CreateClient onClose={handleClose}></CreateClient>
-    </Modal>
-  );
-
-  return (
+  /*return (
     <>
       {showModal && modal}
       <Header  />
@@ -73,7 +96,7 @@ function Home() {
         </div>
       </div>
     </>
-  );
+  );*/
 }
 
 export default Home;

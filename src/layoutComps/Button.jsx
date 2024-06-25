@@ -1,9 +1,9 @@
 import className from "classnames";
-function Button({ children, ...rest }) {
+function Button({ onChange, children, ...rest }) {
   const classes = className(
     rest.className,
-    "bg-black text-white px-2 py-1 rounded m-4 "
+    "bg-white text-black px-2 py-1 rounded-full border m-4 "
   );
-  return <button className={classes}>{children}</button>;
+  return <button onClick={onChange} className={classes}>{children}</button>;
 }
 export default Button;

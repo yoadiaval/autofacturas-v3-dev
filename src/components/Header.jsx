@@ -36,8 +36,8 @@ function Header() {
     <>
       {showModal && modal}
       <div className="mb-14 ">
-        <div className="flex flex-row items-center justify-between px-8 text-gray-50 bg-[#373a5a] fixed w-[100%] top-0 z-50">
-          <h1 className="p-4 text-center">SISTEMA AUTOMATIZADO DE FACTURAS</h1>
+        <div className="flex flex-row items-center justify-between px-8 text-black bg-white shadow-lg fixed w-[100%] top-0 z-50">
+          <h1 className="p-4 text-center">AUTOFACTURAS</h1>
           <div className="flex flex-row items-center gap-4">
             <IoSettingsOutline
               size={25}

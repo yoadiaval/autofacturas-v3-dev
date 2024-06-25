@@ -1,5 +1,4 @@
-import {useState } from "react";
-
+import { useState } from "react";
 import ClientItem from "./ClientItem";
 import { MdPersonSearch } from "react-icons/md";
 import SheetJSReactAoO from "./ExportExcelComp";
@@ -13,9 +12,10 @@ function ClientList() {
   if (search == "") {
     content = clients.map((client, index) => {
       return (
-        <tr key={index}>
+        <div key={index}>
           <ClientItem value={client} />
-        </tr>
+          <hr />
+        </div>
       );
     });
   } else {
@@ -40,34 +40,27 @@ function ClientList() {
   };
 
   return (
-    <>
+    <div>
       <div className="flex items-center">
         <form>
           <input
             type="text"
             name="search"
             value={search}
-            className="py-1 px-2"
+            className="pl-4 py-2 rounded-full focus:outline-none border-[#F3F3F3]"
             onChange={handleChange}
           />
         </form>
         <MdPersonSearch size={25} className="cursor-pointer" />
-
         <SheetJSReactAoO />
       </div>
-      <div className="h-[400px] overflow-auto">
-        <table className="w-[100%]  ">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>{content}</tbody>
-        </table>
+      <div className="grid grid-cols-3 pl-4 py-2 rounded-full bg-[#F3F3F3] text-[#b4b4b4]">
+        <div>NOMBRE</div>
+        <div>DNI</div>
+        <div></div>
       </div>
-    </>
+      <div className="h-[400px] ">{content}</div>
+    </div>
   );
 }
 

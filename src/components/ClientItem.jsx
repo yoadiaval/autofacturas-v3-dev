@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { GoTrash, GoPencil } from "react-icons/go";
 import { useClient } from "../hooks/useClient";
 import Modal from "./Modal";
 import EditClient from "./EditClient";
 import Swal from "sweetalert2";
+import Button from "../layoutComps/Button"
 
 function ClientItem(props) {
   
@@ -50,26 +50,33 @@ function ClientItem(props) {
 
   
   return (
-    <>
+    <div className="grid grid-cols-3 h-[4em] items-center">
       {showModal && modal}
-      <td
+      <div
         className="cursor-pointer hover:font-bold w-[300px]"
-        
         onClick={() => {
           currentClient(client);
-         
         }}
       >
         {client.name.toUpperCase() + " " + client.lastName.toUpperCase()}
-      </td>
-
-      <td>
-        <GoPencil onClick={handleClickModal} className="cursor-pointer" />
-      </td>
-      <td>
-        <GoTrash onClick={alert} className="cursor-pointer" />
-      </td>
-    </>
+      </div>
+      <div>{client.cif.toUpperCase()}</div>
+      <div className="flex gap-3 col-start-3">
+        <Button
+          onChange={handleClickModal}
+          className=" border-[#5BAE9E] text-[#5BAE9E]"
+        >
+          Editar
+        </Button>
+        <Button
+          onChange={alert}
+          className="cursor-pointer border-[#D81C1C] text-[#D81C1C]"
+        >
+          Eliminar
+        </Button>
+       
+      </div>
+    </div>
   );
 }
 

@@ -23,18 +23,18 @@ function EditFactura(props) {
 
   return (
     <>
-      <td className="w-[400px] p-[2px]">
+      <div className="">
         <form onSubmit={handleSubmit}>
           <textarea
             name="description"
             value={detailsLineFactura.description}
             placeholder={item.description}
             onChange={handleChange}
-            className="w-[80%] p-1 border rounded"
+            
           />
         </form>
-      </td>
-      <td className="w-[100px]">
+      </div>
+      <div >
         <form onSubmit={handleSubmit}>
           <input
             type="number"
@@ -42,14 +42,13 @@ function EditFactura(props) {
             value={detailsLineFactura.amount}
             onChange={handleChange}
             placeholder={"\u20AC " + parseFloat(item.amount).toFixed(2)}
-            className="w-[80%]"
             required
           />
         </form>
-      </td>
-      <td className="pl-5">
+      </div>
+      <div className="">
         <IoSaveOutline className="cursor-pointer" onClick={handleSubmit} />
-      </td>
+      </div>
     </>
   );
 }

@@ -4,6 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { FiDownload } from "react-icons/fi";
 import { useRegistro } from "../hooks/useRegistro";
 import { useNumReg } from "../hooks/useNumReg";
+import Button from "../layoutComps/Button";
 
 function Registro() {
   const {  addRegistro, dataPDF, activeDownload, setActiveDowload } =
@@ -101,9 +102,7 @@ function Registro() {
               required
             />{" "}
           </label>
-          <button className=" bg-[#373a5a] text-white rounded px-2 py-1 flex items-center gap-2 mt-1">
-            Registrar
-          </button>
+          <Button className="border-[#5bae9e] text-[#5bae9e]">Registrar</Button>
         </form>
 
         {activeDownload ? (
@@ -121,26 +120,26 @@ function Registro() {
           >
             <button
               onClick={handleActive}
-              className=" bg-[#373a5a] text-white rounded px-2 py-1 flex items-center gap-2"
+              className=" bg-[#5bae9e] text-black rounded px-2 py-1 flex items-center gap-2"
             >
               Descargar PDF <FiDownload size={20} />
             </button>
           </PDFDownloadLink>
         ) : (
-          <button
+          <Button
             disabled={true}
-            className=" bg-zinc-200 text-black rounded px-2 py-1 flex items-center gap-2"
+            className="border-[#5bae9e] text-[#5bae9e] flex items-center gap-2 "
           >
             Descargar PDF <FiDownload size={20} />
-          </button>
+          </Button>
         )}
       </div>
-      <hr className="mt-4" />
-      <div className="border w-fit p-4 rounded bg-[#373a5a] text-white">
+      
+      <div className=" w-fit p-4 rounded bg-[#f3f3f3] ">
         <h4 className="bolder">Próximos datos de registro:</h4>
         <hr />
-        <p>Número Registro A: {A}</p>
-        <p>Número Registro B: {B}</p>
+        <p>Número Serie A: {A}</p>
+        <p>Número Serie B: {B}</p>
       </div>
     </div>
   );

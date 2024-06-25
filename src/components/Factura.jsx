@@ -14,29 +14,26 @@ function Factura() {
       total = total + parseFloat(item.amount);
     });
     return (
-      <td>
+      <div>
         {"\u20AC "} {parseFloat(total).toFixed(2)}
-      </td>
+      </div>
     );
   };
   return (
-    <table className="max-w-[700px]">
-      <thead>
-        <tr>
-          <th>Descripción</th>
-          <th>Cantidad</th>
-          <th>Editar</th>
-          <th>Eliminar</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rowList}
-        <tr className="font-bold border">
-          <td>Total: </td>
-          <td colSpan={3}>{totalFactura()}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <div className="grid grid-cols-4 rounded-full bg-[#f3f3f3] text-[#b5b5b5]">
+        <div>Descripción</div>
+        <div>Cantidad</div>
+        <div>Editar</div>
+        <div>Eliminar</div>
+      </div>
+     
+      {rowList}
+      <div className="font-bold grid grid-cols-4">
+        <div className="col-start-1 ">Total: </div>
+        <div className="col-start-2 ">{totalFactura()}</div>
+      </div>
+    </div>
   );
 }
 

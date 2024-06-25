@@ -5,11 +5,11 @@ import ClientView from "./ClientView";
 
 function FacturaSection(){
     return (
-      <>
+      <div className="px-14 pt-10">
         <ClientView />
         <TerminosPago />
-        <Registro/>
-      </>
+        <Registro />
+      </div>
     );
 }
 export default FacturaSection;

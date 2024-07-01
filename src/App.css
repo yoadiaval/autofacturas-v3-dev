@@ -9,17 +9,32 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #5bae9e;
+  background-color: #b4b4b4;
   border-radius: 8px;
   
 }
 body::-webkit-scrollbar-thumb:hover {
-    background-color:#376b61
+    background-color:#b4b4b4
+}
+
+.modalScroll::-webkit-scrollbar{
+   width: 5px;
+}
+
+.modalScroll::-webkit-scrollbar-thumb{
+   background-color:#b4b4b4;
+    border-radius: 8px;
+}
+
+.modalScroll::-webkit-scrollbar-thumb:hover {
+    background-color:#b4b4b4
 }
 
 
-
 body {
+
+
+
 
   background-color: var(--bg-color);
 

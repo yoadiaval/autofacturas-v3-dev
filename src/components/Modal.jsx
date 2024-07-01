@@ -14,8 +14,10 @@ function Modal({ children, onClose }) {
         onClick={onClose}
         className="fixed inset-0 bg-gray-300 opacity-80"
       ></div>
-      <div className="border-1  fixed inset-[50px] md:inset-[50px] place-content-center  drop-shadow-2xl rounded">
-        <div className="flex flex-col justify-between h-full">{children}</div>
+      <div className="border-1  fixed inset-[50px] md:inset-[50px] place-content-center  drop-shadow-2xl rounded ">
+        <div className="flex flex-col justify-between h-full ">
+          {children}
+        </div>
       </div>
     </div>,
     document.querySelector(".modal-container")

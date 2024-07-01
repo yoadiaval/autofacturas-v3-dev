@@ -1,6 +1,6 @@
 import { useClient } from "../hooks/useClient";
 
-function FacturaClientList(){
+function FacturaClientList({onClose}){
 const { clients, currentClient } = useClient();
 const content = clients.map((client, index) => {
       return (
@@ -9,6 +9,8 @@ const content = clients.map((client, index) => {
           className="hover:font-bold grid grid-cols-2 gap-4 justify-center cursor-pointer"
           onClick={() => {
             currentClient(client);
+            onClose();
+
           }}
         >
           <div className="pl-4">
@@ -18,8 +20,10 @@ const content = clients.map((client, index) => {
         </div>
       );});
     return (
-      <div className="bg-white rounded-3xl p-6 flex flex-col  gap-4 mt-10 min-w-[800px]">
-        <h2 className="bg-[#5bae9e] rounded-full text-white pl-4">Seleccione un cliente</h2>
+      <div className="bg-white rounded-3xl p-6 flex flex-col  gap-4 mt-10 min-w-[800px] overflow-y-scroll modalScroll">
+        <h2 className="bg-[#5bae9e] rounded-full text-white pl-4">
+          SELECCIONE UN CLIENTE
+        </h2>
         {content}
       </div>
     );

@@ -24,9 +24,9 @@ function ClientItem(props) {
       showDenyButton: true,
       denyButtonText: "CANCELAR",
       confirmButtonText: "CONTINUAR",
-      confirmButtonColor: "#373a5a",
+      confirmButtonColor: "#5bae9e",
       icon: "warning",
-      iconColor: "#373a5a",
+      iconColor: "#5bae9e",
     }).then((response) => {
       if (response.isConfirmed) {
         delClient(client.id);

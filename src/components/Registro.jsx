@@ -39,7 +39,7 @@ function Registro() {
   return (
     <div className="flex flex-col gap-2 px-4 pb-8 pt-4">
       <h3>Datos de Registro</h3>
-      <div className="flex items-center gap-4 flex-wrap">
+      <div className="flex flex-col  flex-wrap">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col flex-wrap gap-1 "
@@ -86,7 +86,7 @@ function Registro() {
             </div>
           </div>
           <div className="flex gap-2">
-            <button className=" bg-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 text-[white]">
+            <button className=" bg-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 text-[white] ">
               Registrar
             </button>
           </div>
@@ -114,7 +114,7 @@ function Registro() {
         ) : (
           <button
             disabled={true}
-            className="border-[#5bae9e] text-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 flex gap-2 "
+            className="border-[#5bae9e] text-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 flex gap-2 w-fit"
           >
             Descargar PDF <FiDownload size={20} />
           </button>

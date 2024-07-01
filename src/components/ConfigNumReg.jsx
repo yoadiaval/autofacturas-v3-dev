@@ -35,6 +35,8 @@ function ConfigNumRegistros() {
       text: "Los números de registro se han inicializado correctamente",
       icon: "success",
       iconColor: "#5bae9e",
+     
+      confirmButtonColor: "#5bae9e",
     });
   };
 

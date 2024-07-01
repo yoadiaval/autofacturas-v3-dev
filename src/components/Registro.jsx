@@ -4,7 +4,6 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { FiDownload } from "react-icons/fi";
 import { useRegistro } from "../hooks/useRegistro";
 import { useNumReg } from "../hooks/useNumReg";
-import Button from "../layoutComps/Button";
 
 function Registro() {
   const {  addRegistro, dataPDF, activeDownload, setActiveDowload } =
@@ -52,7 +51,7 @@ function Registro() {
                 value={registro.typePayment}
                 name="typePayment"
                 onChange={handleChange}
-                className=" w-14 rounded-full px-1 focus:outline-none w-32"
+                className="rounded-full px-1 focus:outline-none w-32"
               >
                 <option value="0"></option>
                 <option value="Trasnferencia">Transferencia</option>
@@ -86,41 +85,43 @@ function Registro() {
               />
             </div>
           </div>
-          <div className="flex">
-            <button className=" bg-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4">
+          <div className="flex gap-2">
+            <button className=" bg-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 text-[white]">
               Registrar
             </button>
-            {activeDownload ? (
-              <PDFDownloadLink
-                document={<PDFDoc data={dataPDF} />}
-                fileName={
-                  dataPDF.registro.serie +
-                  "-" +
-                  dataPDF.numReg +
-                  "_" +
-                  dataPDF.registro.date +
-                  "_" +
-                  dataPDF.selectedClient.cif
-                }
-              >
-                <button
-                  onClick={handleActive}
-                  className=" bg-[#5bae9e] text-black rounded px-2 py-1 flex items-center gap-2"
-                >
-                  Descargar PDF <FiDownload size={20} />
-                </button>
-              </PDFDownloadLink>
-            ) : (
-              <button
-                disabled={true}
-                className="border-[#5bae9e] text-black rounded-full px-2 py-1 flex items-center gap-2 mt-4 mb-4 "
-              >
-                Descargar PDF <FiDownload size={20} />
-              </button>
-            )}
           </div>
         </form>
+        {activeDownload ? (
+          <PDFDownloadLink
+            document={<PDFDoc data={dataPDF} />}
+            fileName={
+              dataPDF.registro.serie +
+              "-" +
+              dataPDF.numReg +
+              "_" +
+              dataPDF.registro.date +
+              "_" +
+              dataPDF.selectedClient.cif
+            }
+          >
+            <button
+              onClick={handleActive}
+              className=" bg-[#5bae9e] text-[white] px-2 py-1 rounded-full border mt-4 mb-4 flex gap-2"
+            >
+              Descargar PDF <FiDownload size={20} />
+            </button>
+          </PDFDownloadLink>
+        ) : (
+          <button
+            disabled={true}
+            className="border-[#5bae9e] text-[#5bae9e] px-2 py-1 rounded-full border mt-4 mb-4 flex gap-2 "
+          >
+            Descargar PDF <FiDownload size={20} />
+          </button>
+        )}
       </div>
+
+      <hr className="mb-4" />
 
       <div className=" w-fit p-4 rounded bg-[#f3f3f3] ">
         <h4 className="bolder">Próximos datos de registro:</h4>

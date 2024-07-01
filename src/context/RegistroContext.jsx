@@ -15,6 +15,8 @@ function RegistroProvider({ children }) {
   const { A, B, generateA, generateB } = useNumReg();
 
   const addRegistro = (registro) => {
+    
+   
     if (
       !factura.length == 0 &&
       !(selectedClient.length == 0) &&
@@ -30,12 +32,15 @@ function RegistroProvider({ children }) {
 
       setRegistros([...registros, { registro }]);
       
+
       setDataPDF({
         numReg: registro.serie == "A" ? A : B,
         registro,
         selectedClient,
         factura,
       });
+console.log(dataPDF)
+
 
       setFactura([]);
       setActiveDowload(true);

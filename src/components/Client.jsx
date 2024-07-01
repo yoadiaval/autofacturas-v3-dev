@@ -3,6 +3,7 @@ import CreateClient from "./CreateClient";
 import { useEffect, useState } from "react";
 import { IoPersonAdd } from "react-icons/io5";
 import { useClient } from "../hooks/useClient";
+import SheetJSReactAoO from "./ExportExcelComp";
 import Modal from "../components/Modal";
 
 
@@ -28,19 +29,21 @@ function Client(){
       <CreateClient onClose={handleClose}></CreateClient>
     </Modal>
   );
-
   return (
-    <div className="px-14 pt-10 flex flex-col gap-7 bg-[red]">
+    <div className="px-14 pt-10 ">
       {showModal && modal}
-      <div className="flex justify-between items-center px-2">
+      <div className="flex justify-between items-center px-2 relative">
         <h2>LISTADO CLIENTES</h2>
-        <div className="w-12 h-12 border bg-[#5BAE9E] rounded-full flex items-center justify-center">
-          <IoPersonAdd
-            size={18}
-            className="cursor-pointer"
-            onClick={handleClickModal}
-            color="white"
-          />
+        <div className="absolute right-4 flex gap-2">
+          <SheetJSReactAoO />
+          <div className="w-12 h-12 bg-[#5BAE9E] rounded-full flex items-center justify-center">
+            <IoPersonAdd
+              size={18}
+              className="cursor-pointer"
+              onClick={handleClickModal}
+              color="white"
+            />
+          </div>
         </div>
       </div>
       <ClientList />{" "}

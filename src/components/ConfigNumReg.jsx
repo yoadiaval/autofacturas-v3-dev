@@ -2,6 +2,7 @@ import { useState} from "react";
 import { IoSaveOutline } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { useNumReg } from "../hooks/useNumReg";
+import Button from "../layoutComps/Button";
 
 
 function ConfigNumRegistros() {
@@ -33,7 +34,7 @@ function ConfigNumRegistros() {
       title: "Éxito",
       text: "Los números de registro se han inicializado correctamente",
       icon: "success",
-      iconColor: "#373a5a",
+      iconColor: "#5bae9e",
     });
   };
 
@@ -54,7 +55,7 @@ function ConfigNumRegistros() {
           value={regA}
           onChange={handleChangeRegA}
           placeholder="A"
-          className="pl-4 py-1 w-[70%] "
+          className="pl-4 py-1 w-[70%] px-1 rounded-full  bg-[#f8f8f8] border-none focus:outline-none "
           required
         />
         <button>
@@ -71,7 +72,7 @@ function ConfigNumRegistros() {
           value={regB}
           onChange={handleChangeRegB}
           placeholder="B"
-          className="pl-4 py-1 w-[70%]"
+          className="pl-4 py-1 w-[70%] px-1 rounded-full  bg-[#f8f8f8] border-none focus:outline-none "
           required
         />
         <button>
@@ -82,14 +83,14 @@ function ConfigNumRegistros() {
       <hr />
       <div className="flex flex-row gap-2">
         <p>Establecer valores inicialies</p>
-        <button
-          onClick={() => {
+        <Button
+          onChange={() => {
             alert();
           }}
-          className="bg-[#373a5a] text-white rounded px-1"
+          className="bg-[#5bae9e] text-white rounded px-1 py-1"
         >
           Inicializar
-        </button>
+        </Button>
       </div>
     </div>
   );

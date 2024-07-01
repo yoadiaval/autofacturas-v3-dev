@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ClientItem from "./ClientItem";
 import { MdPersonSearch } from "react-icons/md";
-import SheetJSReactAoO from "./ExportExcelComp";
 import { useClient } from "../hooks/useClient";
 
 function ClientList() {
@@ -40,26 +39,25 @@ function ClientList() {
   };
 
   return (
-    <div >
-      <div className="flex items-center ">
+    <div className=" mb-10">
+      <div className="flex items-center mb-4">
         <form>
           <input
             type="text"
             name="search"
             value={search}
-            className="pl-4 py-2 rounded-full focus:outline-none border-[#F3F3F3]"
+            className="pl-4 py-1 rounded-full focus:outline-none border-[#F3F3F3] bg-[#F3F3F3] mt-2"
             onChange={handleChange}
           />
         </form>
         <MdPersonSearch size={25} className="cursor-pointer" />
-        <SheetJSReactAoO />
       </div>
-      <div className="grid grid-cols-3 pl-4 py-2 rounded-full bg-[#F3F3F3] text-[#b4b4b4]">
+      <div className="grid grid-cols-3 pl-4 py-1 rounded-full bg-[#F3F3F3] text-[#b4b4b4]">
         <div>NOMBRE</div>
         <div>DNI</div>
         <div></div>
       </div>
-      <div className="h-[400px] ">{content}</div>
+      <div className="h-fit">{content}</div>
     </div>
   );
 }

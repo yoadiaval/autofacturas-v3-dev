@@ -53,7 +53,7 @@ function ClientProvider({ children }) {
     }
   };
   const editClient = async (client) => {
-    console.log(client.id);
+  
     try {
       await setDoc(doc(db, "clients", client.id), {
         name: client.name,

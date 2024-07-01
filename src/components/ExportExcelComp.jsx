@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useContext } from "react";
+import { useCallback} from "react";
 import { utils, writeFileXLSX } from "xlsx";
-import { FiDownload } from "react-icons/fi";
 import { useClient } from "../hooks/useClient";
 import Button from "../layoutComps/Button";
+import { SiMicrosoftexcel } from "react-icons/si";
 
 export default function SheetJSReactAoO() {
   const { clients } = useClient();
@@ -21,10 +21,10 @@ export default function SheetJSReactAoO() {
 
   return (
     <Button
-      className="flex items-center gap-2 bg-[#5BAE9E] text-[#f5f5f5]"
-      onClick={exportFile}
+      className="flex items-center justify-center w-12 h-12 rounded-full bg-[#5BAE9E] text-[#f5f5f5]"
+      onChange={exportFile}
     >
-      Excel <FiDownload />
+      <SiMicrosoftexcel /> 
     </Button>
   );
 }

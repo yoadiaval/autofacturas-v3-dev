@@ -1,6 +1,6 @@
 :root {
   --color-light: #b4b4b4;
-  --bg-color: #f3f3f3;
+  --bg-color: #f8f8f8;
   --btn-color-red: #d81c1c;
   --btn-color-green: #5bae9e;
 }
@@ -17,7 +17,10 @@ body::-webkit-scrollbar-thumb:hover {
     background-color:#376b61
 }
 
+
+
 body {
+
   background-color: var(--bg-color);
 
   h1,

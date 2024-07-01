@@ -9,7 +9,7 @@ function ClientItem(props) {
   
   const client = props.value;
 
-  const { currentClient, delClient } = useClient();
+  const { delClient } = useClient();
   const [showModal, setShowModal] = useState(false);
   const handleClickModal = () => {
     setShowModal(true);
@@ -53,28 +53,22 @@ function ClientItem(props) {
     <div className="grid grid-cols-3 h-[4em] items-center">
       {showModal && modal}
       <div
-        className="cursor-pointer hover:font-bold w-[300px]"
-        onClick={() => {
-          currentClient(client);
-        }}
+        className=" w-[300px]"
+        
       >
         {client.name.toUpperCase() + " " + client.lastName.toUpperCase()}
       </div>
       <div>{client.cif.toUpperCase()}</div>
-      <div className="flex gap-3 col-start-3">
+      <div className="flex gap-3 col-start-3 justify-end">
         <Button
           onChange={handleClickModal}
-          className=" border-[#5BAE9E] text-[#5BAE9E]"
+          className=" border-[#5bae9e] text-[#5bae9e] "
         >
           Editar
         </Button>
-        <Button
-          onChange={alert}
-          className="cursor-pointer border-[#D81C1C] text-[#D81C1C]"
-        >
+        <Button onChange={alert} className=" border-[#eb8d8d] text-[#eb8d8d]">
           Eliminar
         </Button>
-       
       </div>
     </div>
   );

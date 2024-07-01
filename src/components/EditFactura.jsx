@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoSaveOutline } from "react-icons/io5";
 import { useFactura } from "../hooks/useFactura";
 
 function EditFactura(props) {
